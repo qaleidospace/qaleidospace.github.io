@@ -1,0 +1,13 @@
+---
+layout: common
+---
+    <div class="container">
+      <div class="jumbotron">
+        <h1>かくれた名投稿をさがそう。</h1>
+        <p>（※現在開発中です）Qaleidospace は <a href="http://qiita.com/" target="_blank">Qiita</a> の投稿を独自のアルゴリズムで評価し、ランキング形式で提示するサービスです。ストック数だけでは測れない「かくれた名投稿」を見つけましょう。</p>
+      </div>
+    </div>
+
+    {% for item in site.data.main %}
+      {% include ranking-item.html item=item %}
+    {% endfor %}

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="img/logo.png" alt="Qaleidospace" /></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        {% include nav-item.html title="Home" link="/" %}
+        {% include nav-item.html title="Daily" link="/daily" %}
+        {% include nav-item.html title="Weekly" link="/weekly" %}
+        {% include nav-item.html title="Monthly" link="/monthly" %}
+        {% include nav-item.html title="Yearly" link="/yearly" %}
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

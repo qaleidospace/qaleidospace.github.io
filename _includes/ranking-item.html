@@ -1,0 +1,18 @@
+<div class="container ranking-item">
+  <div class="rank col-md-1 col-xs-2">
+    {{ include.item.rank }}
+  </div>
+  <div class="author col-md-1 col-xs-2">
+    <img src="{{ include.item.user.profile-image-url }}" />
+  </div>
+  <div class="item col-md-10 col-xs-8">
+    <div class="tags">
+      {% for tag in include.item.tags %}
+      <span class="tag">{{ tag.name }}</span>
+      {% endfor %}
+    </div>
+    <h2><a href="{{ include.item.url }}">{{ include.item.title }}</a></h2>
+    <div class="date">{{ include.item.created-at }}</div>
+    <div class="score">{{ include.item.score }} pt</div>
+  </div>
+</div><!-- /.container -->
