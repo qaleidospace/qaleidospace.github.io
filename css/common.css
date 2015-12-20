@@ -23,6 +23,10 @@ a:visited {
   color: rgb(45, 189, 0);
 }
 
+h1 {
+  font-family: sans-serif;
+}
+
 .navbar-brand {
   padding-top: 3px;
   padding-bottom: 3px;
