@@ -8,6 +8,4 @@ layout: common
       </div>
     </div>
 
-    {% for item in site.data.main %}
-      {% include ranking-item.html item=item %}
-    {% endfor %}
+    {% include ranking.html ranking=site.data.main %}
