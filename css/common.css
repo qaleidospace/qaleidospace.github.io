@@ -56,9 +56,11 @@ h1 {
   text-align: center;
 }
 
+.ranking-item .author {
+}
+
 .ranking-item .author img {
   width: 64px;
-  height: 64px;
   border-radius: 32px;
   text-align: center;
   margin-top: 10px;
