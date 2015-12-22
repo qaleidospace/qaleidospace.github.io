@@ -1,20 +1,21 @@
-<div class="container ranking-item">
-  <div class="rank col-md-1 col-xs-2">
+<div class="item">
+  <div class="rank">
     {{ include.item.rank }}
   </div>
-  <div class="author col-md-1 col-xs-2">
+  <div class="author">
     <a href="https://qiita.com/{{ include.item.user.id | uri_escape }}">
-      <img src="{{ include.item.user.profile_image_url }}" alt="{{ include.item.user.id | xml_escape }}" />
+      <img class="img-circle" src="{{ include.item.user.profile_image_url }}" alt="{{ include.item.user.id | xml_escape }}" />
     </a>
   </div>
-  <div class="item col-md-10 col-xs-8">
+  <div class="main">
     <div class="tags">
       {% for tag in include.item.tags %}
-      <span class="tag">{{ tag.name | xml_escape }}</span>
+      <!-- <span class="tag">{{ tag.name | xml_escape }}</span> -->
+      <button class="tag" type="button" value="{{ tag.name | xml_escape }}">{{ tag.name | xml_escape }}</button>
       {% endfor %}
     </div>
     <h2><a href="{{ include.item.url }}">{{ include.item.title | xml_escape }}</a></h2>
     <div class="date">{% assign dates = include.item.created_at | split: 'T' %}{{ dates[0] }}</div>
     <div class="score">{{ include.item.score }} pt</div>
   </div>
-</div><!-- /.container -->
+</div>
