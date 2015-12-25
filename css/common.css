@@ -24,7 +24,7 @@ h1 {
 
 .navbar-default {
   background-color: #fff;
-  border-color: #eee;
+  border-color: rgb(221, 221, 221);
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li.active>a:hover {
@@ -54,9 +54,18 @@ h1 {
   font-size: 48px;
 }
 
+.searchable {
+  padding-top: 15px;
+}
+
+.nav-tabs>li>a:hover {
+  background-color: rgb(248, 248, 248);
+  border: solid 1px rgb(248, 248, 248);
+  border-bottom-color: rgb(221, 221, 221);
+}
+
 .search {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px;
 }
 
 .ranking {
@@ -72,7 +81,7 @@ h1 {
 .ranking>.item>.rank {
   display: table-cell;
   padding: 30px 0 15px 0;
-  border-bottom: solid 1px #eee;
+  border-bottom: solid 1px rgb(221, 221, 221);
   width: 105px;
   font-size: 60px;
   font-family: sans-serif;
@@ -84,7 +93,7 @@ h1 {
 .ranking>.item>.author {
   display: table-cell;
   padding: 30px 0 15px 0;
-  border-bottom: solid 1px #eee;
+  border-bottom: solid 1px rgb(221, 221, 221);
   width: 105px;
   text-align: center;
   vertical-align: middle;
@@ -97,7 +106,7 @@ h1 {
 .ranking>.item>.main {
   display: table-cell;
   padding: 15px 0 15px 20px;
-  border-bottom: solid 1px #eee;
+  border-bottom: solid 1px rgb(221, 221, 221);
   vertical-align: middle;
 }
 

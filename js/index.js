@@ -51,5 +51,19 @@ $(".searchable").each(function(index, searchable) {
     addTag(searchable, $(this).val());
     searchTags(searchable, getTags(searchable));
   });
+
 });
 
+$('.searchable[data-type!="72hours"]').hide();
+
+$("#ranking-tabs li").each(function(index, list) {
+  var type = $(this).attr("data-type");
+
+  $("a", this).click(function(event) {
+    event.preventDefault();
+    $("#ranking-tabs li").removeClass("active");
+    $('#ranking-tabs li[data-type="' + type + '"]').addClass("active");
+    $('.searchable[data-type="' + type + '"]').show();
+    $('.searchable[data-type!="' + type + '"]').hide();
+  });
+});
