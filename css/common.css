@@ -54,6 +54,11 @@ h1 {
   font-size: 48px;
 }
 
+.search {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .ranking {
   display: table;
   table-layout: fixed;
