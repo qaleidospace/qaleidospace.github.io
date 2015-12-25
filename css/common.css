@@ -22,6 +22,14 @@ h1 {
   font-family: sans-serif;
 }
 
+footer {
+  margin-top: 15px;
+  border-top: solid 1px rgb(221, 221, 221);
+  padding: 10px 0;
+  color: #777;
+  text-align: right;
+}
+
 .navbar-default {
   background-color: #fff;
   border-color: rgb(221, 221, 221);
@@ -81,7 +89,6 @@ h1 {
 .ranking-table>.item>.rank {
   display: table-cell;
   padding: 30px 0 15px 0;
-  border-bottom: solid 1px rgb(221, 221, 221);
   width: 105px;
   font-size: 60px;
   font-family: sans-serif;
@@ -93,7 +100,6 @@ h1 {
 .ranking-table>.item>.author {
   display: table-cell;
   padding: 30px 0 15px 0;
-  border-bottom: solid 1px rgb(221, 221, 221);
   width: 105px;
   text-align: center;
   vertical-align: middle;
@@ -106,7 +112,6 @@ h1 {
 .ranking-table>.item>.main {
   display: table-cell;
   padding: 15px 0 15px 20px;
-  border-bottom: solid 1px rgb(221, 221, 221);
   vertical-align: middle;
 }
 
@@ -141,6 +146,10 @@ h1 {
   font-family: sans-serif;
   font-size: 18px;
   color: #777;
+}
+
+.ranking-table>.item:not(:first-child)>div {
+  border-top: solid 1px rgb(221, 221, 221);
 }
 
 @media screen and (max-width: 768px) {
