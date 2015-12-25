@@ -1,3 +1,7 @@
+function complementNull(value, alternative) {
+  return value != null ? value : alternative;
+}
+
 function searchTags(tags) {
   $(".ranking-table>.item").each(function(index, item) {
     var matched = tags.reduce(function(acc, tag) {
@@ -16,6 +20,10 @@ function searchTags(tags) {
 }
 
 function addTag(tag) {
+  if (getTags().map(function(tag) { return tag.toLowerCase(); }).indexOf(tag.toLowerCase()) >= 0) {
+    return;
+  }
+
   if (/\s/.test(tag)) {
     tag = "\"" + tag + "\"";
   }
@@ -23,10 +31,6 @@ function addTag(tag) {
   var input = $(".search input");
   var inputValue = input.val();
   input.val(inputValue == "" ? tag : inputValue + " " + tag);
-}
-
-function complementNull(value, alternative) {
-  return value != null ? value : alternative;
 }
 
 function getTags() {
@@ -44,6 +48,12 @@ function getTags() {
 
 $(".search button").click(function() {
   searchTags(getTags());
+});
+
+$(".search input").keypress(function(event) {
+  if (event.which == 13) {
+    $(".search button").click();
+  }
 });
 
 $(".ranking-table>.item>.main>.tags>.tag").click(function() {
