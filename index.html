@@ -17,6 +17,16 @@ js: "index.js"
         <li role="presentation" data-type="monthly"><a href="#">Monthly</a></li>
         <li role="presentation" data-type="yearly"><a href="#">Yearly</a></li>
       </ul>
+      <div class="row">
+        <div class="search col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="タグを入力して下さい。" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">検索</button>
+            </span>
+          </div>
+        </div>
+      </div>
       {% include ranking.html ranking=site.data.72hours type="72hours" %}
       {% include ranking.html ranking=site.data.daily type="daily" %}
       {% include ranking.html ranking=site.data.weekly type="weekly" %}

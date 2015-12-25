@@ -1,21 +1,9 @@
-    <div class="container searchable" data-type="{{ include.type }}">
-      <div class="row">
-        <div class="search col-md-4 col-sm-6 col-xs-12">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="タグを入力して下さい。" />
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">検索</button>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
+      <div class="row rankings" data-type="{{ include.type }}">
         <div class="col-xs-12">
-          <div class="ranking">
+          <div class="ranking-table">
           {% for item in include.ranking %}
           {% include ranking-item.html item=item %}
           {% endfor %}
           </div>
         </div>
       </div>
-    </div>
