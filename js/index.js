@@ -2,6 +2,34 @@ function complementNull(value, alternative) {
   return value != null ? value : alternative;
 }
 
+function getUrlParameters() {
+    return location.search.substr(1).split("&").reduce(function(result, nameAndValueString) {
+      var nameAndValue = nameAndValueString.split("=");
+      if (nameAndValue.length == 2) {
+        result[nameAndValue[0]] = decodeURIComponent(nameAndValue[1]);
+      }
+      return result;
+    }, {});
+}
+
+function urlParametersToString(urlParameters) {
+  var string = ""
+  if ("type" in urlParameters) {
+    string += "?type=" + encodeURIComponent(urlParameters.type);
+  }
+  if ("q" in urlParameters) {
+    if (string.length == 0) {
+      string += "?";
+    } else {
+      string += "&";
+    }
+
+    string += "q=" + encodeURIComponent(urlParameters.q);
+  }
+
+  return string;
+}
+
 function searchTags(tags) {
   $(".ranking-table>.item").each(function(index, item) {
     var matched = tags.reduce(function(acc, tag) {
@@ -17,6 +45,10 @@ function searchTags(tags) {
       $(item).hide();
     }
   });
+
+  var urlParameters = getUrlParameters();
+  urlParameters.q = encodeURIComponent(getSearchQuery());
+  window.history.pushState(null, "", [location.protocol, '//', location.host, location.pathname].join('') + urlParametersToString(urlParameters));
 }
 
 function addTag(tag) {
@@ -33,8 +65,20 @@ function addTag(tag) {
   input.val(inputValue == "" ? tag : inputValue + " " + tag);
 }
 
+function getSearchQueryInput() {
+  return $(".search input");
+}
+
+function getSearchQuery() {
+  return getSearchQueryInput().val();
+}
+
+function setSearchQuery(query) {
+  getSearchQueryInput().val(query);
+}
+
 function getTags() {
-  var tagsString = $(".search input").val();
+  var tagsString = getSearchQuery();
   var multiTagExp = /"[^"]+"/g;
   var tagExp = /\S+/g;
   var tags = complementNull(tagsString.match(multiTagExp), []).map(function(tag) { return tag.substr(1, tag.length - 2); });
@@ -61,8 +105,6 @@ $(".ranking-table>.item>.main>.tags>.tag").click(function() {
   searchTags(getTags());
 });
 
-$('.rankings[data-type!="72hours"]').hide();
-
 $("#ranking-tabs li").each(function(index, list) {
   var type = $(this).attr("data-type");
 
@@ -72,5 +114,28 @@ $("#ranking-tabs li").each(function(index, list) {
     $('#ranking-tabs li[data-type="' + type + '"]').addClass("active");
     $('.rankings[data-type="' + type + '"]').show();
     $('.rankings[data-type!="' + type + '"]').hide();
+
+    var urlParameters = getUrlParameters();
+    urlParameters.type = type;
+    window.history.pushState(null, "", [location.protocol, '//', location.host, location.pathname].join('') + urlParametersToString(urlParameters));
   });
+});
+
+$(function() {
+  var urlParameters = getUrlParameters();
+
+  var type = urlParameters.type;
+  if (type != "72hours" && type != "daily" && type != "weekly" && type != "monthly" && type != "yearly") {
+    type = "72hours";
+  }
+  $("#ranking-tabs li").removeClass("active");
+  $('#ranking-tabs li[data-type="' + type + '"]').addClass("active");
+  $('.rankings[data-type="' + type + '"]').show();
+  $('.rankings[data-type!="' + type + '"]').hide();
+
+  var query = urlParameters.q;
+  if (query != null) {
+    setSearchQuery(query);
+    searchTags(getTags());
+  }
 });
