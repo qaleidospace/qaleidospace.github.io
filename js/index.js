@@ -18,13 +18,16 @@ function urlParametersToString(urlParameters) {
     string += "?type=" + encodeURIComponent(urlParameters.type);
   }
   if ("q" in urlParameters) {
-    if (string.length == 0) {
-      string += "?";
-    } else {
-      string += "&";
-    }
+    var encodedQuery = encodeURIComponent(urlParameters.q);
+    if (encodedQuery != "") {
+      if (string.length == 0) {
+        string += "?";
+      } else {
+        string += "&";
+      }
 
-    string += "q=" + encodeURIComponent(urlParameters.q);
+      string += "q=" + encodeURIComponent(urlParameters.q);
+    }
   }
 
   return string;
