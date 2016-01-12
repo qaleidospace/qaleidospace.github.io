@@ -35,6 +35,10 @@ footer {
   border-color: rgb(221, 221, 221);
 }
 
+.navbar-default .navbar-nav>li.icon>a {
+  font-size: large;
+}
+
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li.active>a:hover {
   color: rgb(45, 189, 0);
 }
