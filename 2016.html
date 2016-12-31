@@ -1,0 +1,32 @@
+---
+layout: common
+js: "index.js"
+---
+    <div class="container">
+      <div class="jumbotron">
+        <h1>2016 TOP 99</h1>
+        <p>2016年の <a href="http://qiita.com/" target="_blank">Qiita</a> の投稿を Qaleidospace のスコアでランキングしました。</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <a href="https://twitter.com/Qaleidospace"><i class="fa fa-twitter"></i> Twitter によるランキングの配信も行っています。</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="search col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="タグを入力して下さい。" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">検索</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      {% include ranking.html ranking=site.data.2016 type="72hours" %}
+    </div>
